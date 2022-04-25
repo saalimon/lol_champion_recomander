@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} {% endblock %} - recomendation </title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/pico.min.css') }}">
+
+</head>
+<body>
+    <header  class="container">
+        <hgroup>
+            <h1>League of legend recomendation model</h1>
+            <h2>League of Legends is a team-based game with over 154 champions to make epic plays with.</h2>
+        </hgroup>
+    </header >
+    <div class="container">
+        <nav>
+            <ul>
+              <li><a href="{{ url_for('index') }}"><strong>Main</strong></a></li>
+            </ul>
+            <ul>
+              <li><a href="{{ url_for('apriori') }}">Apriori</a></li>
+              <li><a href="{{ url_for('knn') }}">KNN</a></li>
+              <li><a href="{{ url_for('prediction') }}">Prediction</a></li>
+            </ul>
+        </nav>
+    </div> 
+    <hr>
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    <div class="container">
+        {% block apriori %} {% endblock %}
+    </div>
+    <div class="container">
+        {% block knn %} {% endblock %}
+    </div>
+    <div class="prediction">
+        {% block prediction %} {% endblock %}
+    </div>
+</body>
+</html>

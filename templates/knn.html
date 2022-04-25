@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block knn %}
+    <div class="container">
+        <h1>{% block title %} KNN Model {% endblock %}</h1>
+
+        <section id="form">  
+            <form action="{{ url_for('knn') }}" method="post">
+                <div class="grid">
+                    <label for="Blue">
+                        Blue
+                            <input type="text" id="t11" name="t11" value="{{current[0]}}">
+                            <input type="text" id="t12" name="t12" value="{{current[1]}}">
+                            <input type="text" id="t13" name="t13" value="{{current[2]}}">
+                            <input type="text" id="t14" name="t14" value="{{current[3]}}">
+                            <input type="text" id="t15" name="t15" value="{{current[4]}}">
+                    </label>
+                    
+                </div>
+                <div class="grid">
+                    <label for="Red">
+                        Red
+                            <input type="text" id="t21" name="t21" value="{{opponent[0]}}">
+                            <input type="text" id="t22" name="t22" value="{{opponent[1]}}">
+                            <input type="text" id="t23" name="t23" value="{{opponent[2]}}">
+                            <input type="text" id="t24" name="t24" value="{{opponent[3]}}">
+                            <input type="text" id="t25" name="t25" value="{{opponent[4]}}">
+                    </label>
+                </div>
+                <label for="role">Choose a Role for recommend:</label>
+                <select id="role" name="role">
+                    <option value="ANY" selected="selected">ANY</option>
+                    <option value="TOP">TOP</option>
+                    <option value="MID">MID</option>
+                    <option value="JG">JG</option>
+                    <option value="ADC">ADC</option>
+                    <option value="SUP">SUP</option>
+                </select>
+            <input type="submit" name="submit_button" value="find champion">
+            <input type="submit" name="submit_button" value="win rate prediction">
+            </form>
+        </section>
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+    </div>
+{% endblock %}

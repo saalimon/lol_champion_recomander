@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block prediction %}
+    <div class="container">
+        <h1>{% block title %} Prediction {% endblock %}</h1>
+        <section id="form">  
+            <form action="{{ url_for('prediction') }}" method="post">
+                <div class="grid">
+                    <label for="TOP Blue">
+                        TOP Blue
+                        <input type="text" id="top_t1" name="top_t1" placeholder="" required>
+                    </label>
+                    <label for="TOP Red">
+                        TOP Red
+                        <input type="text" id="top_t2" name="top_t2" placeholder="" required>
+                    </label>
+                </div>
+                <div class="grid">
+                    <label for="MID Blue">
+                        MID Blue
+                        <input type="text" id="mid_t1" name="mid_t1" placeholder="" required>
+                    </label>
+                    <label for="MID Red">
+                        MID Red
+                        <input type="text" id="mid_t2" name="mid_t2" placeholder="" required>
+                    </label>
+                </div>
+                <div class="grid">
+                    <label for="ADC Blue">
+                        ADC Blue
+                        <input type="text" id="adc_t1" name="adc_t1" placeholder="" required>
+                    </label>
+                    <label for="ADC Red">
+                        ADC Red
+                        <input type="text" id="adc_t2" name="adc_t2" placeholder="" required>
+                    </label>
+                </div>  
+                <div class="grid">
+                    <label for="JG Blue">
+                        JG Blue
+                        <input type="text" id="jg_t1" name="jg_t1" placeholder="" required>
+                    </label>
+                    <label for="JG Red">
+                        JG Red
+                        <input type="text" id="jg_t2" name="jg_t2" placeholder="" required>
+                    </label>
+                </div>
+                <div class="grid">
+                    <label for="SUP Blue">
+                        SUP Blue
+                        <input type="text" id="sup_t1" name="sup_t1" placeholder="" required>
+                    </label>
+                    <label for="SUP Red">
+                        SUP Red
+                        <input type="text" id="sup_t2" name="sup_t2" placeholder="" required>
+                    </label>
+                </div>       
+            <input type="submit" value="Submit">
+            </form>
+        </section>
+        <div>
+            <h3>Win Rate: {{ winrate }}</h3>
+        </div>
+    </div>
+{% endblock %}

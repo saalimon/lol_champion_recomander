@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block apriori %}
+    <div class="container">
+        <h1>{% block title %} Apriori Model {% endblock %}</h1>
+        <form action="{{ url_for('apriori') }}" method="post">
+            <label for="fname">Query:> </label><br>
+            <input type="text" id="query" name="query" value=""><br>
+            <input type="submit" value="Submit">
+        </form> 
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+    </div>
+{% endblock %}
